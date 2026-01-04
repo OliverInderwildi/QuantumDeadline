@@ -72,12 +72,16 @@
       margin: 26px 0;
     }
     /* Figure sizing */
-  .figure-wide {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    .figure-wide {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    
+          @media (min-width: 1600px) {
+        .figure-wide {
+          max-width: 1320px;
+        }
+      }
     .figure-narrow {
       max-width: 680px;
       margin-left: auto;
@@ -89,6 +93,16 @@
       width: 100%;
       height: auto;
     }
+      .key-insight {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.45;
+    padding: 16px 18px;
+    margin: 28px 0;
+    background: #f5f7fa;
+    border-left: 4px solid #0b57d0;
+    border-radius: 6px;
+  }
   </style>
 </head>
 
@@ -235,8 +249,8 @@
     <figcaption><strong>Figure 3:</strong> Scenarios for the market size of quantum-encrypted communication (QEC) for 2035 as developed by McKinsey &amp; Co. (Circles scale with diameter not area).</figcaption>
   </figure>
 
-  <p>
-    <strong>Quantum computing isn’t just a risk; it brings enormous economic, environmental and societal opportunities—and the telecom sector is uniquely equipped to reap these benefits.</strong>
+ <p class="key-insight">
+  Quantum computing isn’t just a risk; it brings enormous economic, environmental and societal opportunities—and the telecom sector is uniquely equipped to reap these benefits.
   </p>
 
   <h2>The Time is Now: The Roadmap to Quantum Readiness</h2>
