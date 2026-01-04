@@ -73,15 +73,13 @@
     }
     /* Figure sizing */
     .figure-wide {
-      max-width: 1240px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100vw;
+      max-width: 1400px;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: 20px;
+      padding-right: 20px;
     }
-          @media (min-width: 1600px) {
-        .figure-wide {
-          max-width: 1320px;
-        }
-      }
     .figure-narrow {
       max-width: 680px;
       margin-left: auto;
