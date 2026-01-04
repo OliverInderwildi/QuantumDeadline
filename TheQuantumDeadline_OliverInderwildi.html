@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE QUANTUM DEADLINE: Telcos Face a Make-or-Break Moment</title>
+  <meta name="author" content="Oliver Inderwildi" />
+  <meta name="description" content="Quantum computing is nearing Q-Day, when encryption breaks. Learn how telecom operators face rising quantum cyber risks—and how post-quantum security creates opportunity.">
+  <meta name="keywords" content="quantum computing, Q-Day, post-quantum cryptography, PQC, harvest now decrypt later, HNDL, telecom cybersecurity, quantum decryption, quantum encrypted communication, QKD, QCaaS, quantum readiness" />
+
+  <style>
+    :root {
+      --maxw: 920px;
+      --text: #111;
+      --muted: #555;
+      --bg: #fff;
+      --link: #0b57d0;
+      --border: #e6e6e6;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    main {
+      max-width: var(--maxw);
+      margin: 42px auto;
+      padding: 0 20px 70px;
+    }
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+    .byline {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin: 28px 0 10px;
+    }
+    p { margin: 12px 0; }
+    ul { margin: 10px 0 14px 22px; }
+
+    figure {
+      margin: 18px 0 22px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .hr {
+      border-top: 1px solid var(--border);
+      margin: 26px 0;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+  <h1>THE QUANTUM DEADLINE: Telcos Face a Make-or-Break Moment</h1>
+  <p class="byline">by Oliver Inderwildi</p>
+
+  <p><em>Extended version of an Editorial Opinion published in The Fast Mode. The article is also available <a href="#">here</a>.</em></p>
+
+  <p>
+    Our lives increasingly take place in a virtual world, humans connect on social media, shop online
+    and our health records are uploaded to an enormous cyber cloud. All this has tremendous upsides
+    and —after all—our data is protected via encryption. Still, data breaches are becoming more and
+    more common—encrypted data is stolen and stored by state and non-state players with one goal:
+    decrypt this data later, an approach referred to as harvest now, decrypt later (HNDL).
+  </p>
+
+  <p>
+    What are the entities involved in HNDL speculating on? Rapid technological progress. Large
+    language models, LLMs, for instance have emerged at a pace that even the most bullish experts
+    didn’t anticipate. Meanwhile, quantum computing (QC) breakthroughs are stacking up faster than
+    expected—with test results showing performance gains far beyond the most optimistic projections.
+  </p>
+
+  <p>
+    In my view, the ascent of QC will follow a similar path to generative AI: it will appear suddenly and
+    develop at breakneck speed. Operational QCs will allow quantum decryption, which will break
+    current encryption standards like a hammer cracks a walnut. All of a sudden, it does make sense to
+    steal encrypted data, because it won’t be encrypted for long, QC is closer than we think. That’s why
+    we need to confront its consequences right now!
+  </p>
+
+  <h2>The Illusion of Time: Why 2030 Is Too Late</h2>
+
+  <p>
+    Until recently, 2030 was considered the earliest possible date for cryptographically relevant
+    quantum computers (CRQC). However, that timeline is rapidly collapsing as in the past year alone:
+  </p>
+
+  <ul>
+    <li>Google’s Willow reduced a 10-septillion-year problem to a 5-minute calculation.</li>
+    <li>Microsoft discovered a new quantum phase of matter, a breakthrough for error correction.</li>
+    <li>D-Wave and Quantinuum solved previously intractable problems.</li>
+  </ul>
+
+  <p>
+    Perhaps most significantly, we’re seeing the first signs of a quantum–AI feedback loop: artificial
+    intelligence is accelerating quantum computer design and operation, and quantum machines will
+    soon return the favour. These developments strongly suggest that cryptographically relevant QCs
+    will be operational years earlier than even the most optimistic forecasts predicted. In short, the
+    so-called Q-Day—the day when current encryption will be rendered useless by operational QCs and
+    their deciphering abilities —is approaching rapidly. The graphic below gives a short timeline of
+    quantum computing, from Feynman’s ideation to the near future. The probability of Q-Day hitting
+    this decade is, in my opinion, close to 100% and this will have consequences for every one of us as
+    we’ll explore hereafter.
+  </p>
+
+  <figure id="figure-1">
+    <img src="figure1.png" alt="Quantum computing timeline from early foundations to Q-Day probability approaching 2030." />
+    <figcaption><strong>Figure 1:</strong> A short timeline of Quantum Computing, the probability for Q-Day materialising this decade is—according to my assessment—close to 100%.</figcaption>
+  </figure>
+
+  <h2>The End of Privacy: What Quantum Decryption means for all of us</h2>
+
+  <p>
+    What policymakers and telecom leaders must understand: the “harvest now, decrypt later” threat is
+    no longer theoretical. State intelligence services and corporate espionage actors have already
+    harvested vast troves of encrypted data—just waiting for them to be unlocked by the Quantum
+    Dietrich—a truly universal digital lockpick. A 2024 briefing from the European Parliamentary
+    Research Service and a 2022 white paper from the World Economic Forum confirm that state and
+    corporate actors are hoarding sensitive communications today, betting on future decryption. Hence,
+    HNDL attacks are selectively targeting data with long-term value such as health and financial
+    records, government data, corporate IP and other Personal Identifiable Information (PII), the graphic
+    below shows a breakdown.
+  </p>
+
+  <figure id="figure-2">
+    <img src="figure2.png" alt="HNDL attacks selectively target data with long-term strategic value; estimated distribution of harvested data and examples." />
+    <figcaption><strong>Figure 2:</strong> HNDL attacks selectively target data with long-term strategic value such as governmental, corporate and personal data. The estimates shown are the result of a meta-analysis of data by Rand Corp., The Quantum Insider, the US Government Accountability Office, the US Chamber of Commerce, The Wall Street Journal, Microsoft and others.</figcaption>
+  </figure>
+
+  <p>
+    Once CRQCs arrive, decades of encrypted secrets—health records, financial transactions, state
+    communications—WILL be exposed retroactively. The inflection point of quantum decryption will
+    reverberate through the global economy, national security and the financial system—read an
+    assessment of these effects here.
+  </p>
+
+  <h2>Public Duty: Why the Telecom Industry Must Lead</h2>
+
+  <p>
+    The telecommunications industry is key to safeguarding our national interests, economic wellbeing
+    and privacy; they are the pillar of the digital infrastructure as they own fiber networks, edge
+    facilities and data centres. This infrastructure is key to QC operation, however, it is also the Achilles
+    heel as it is the entrance point of malign entities preying on data; industry leaders have the duty to
+    think ahead and implement safeguards for nation states and their inhabitants. One could counter this
+    statement with the fact that it indeed the state that should implement these safeguards, yet, this time
+    it is different as we’ll explore hereafter.
+  </p>
+
+  <h2>The Governance Lag: Policy is Struggling to Keep Up</h2>
+
+  <p>
+    Technological innovation has long outpaced democratic decision-making. Not due to unwillingness
+    or inertia, but because democratic processes require consensus-building, consultation, and
+    regulation drafting—all inherently slow. By the time legislation catches up, technology has already
+    evolved—and this trend will not reverse. Policy makers have to prioritise smart and adaptive
+    policies that automatically adapt to tech developments – I am well aware that this is easier said than
+    done, yet successful examples of such political innovation exist! The United States via NIST’s Post
+    Quantum Encryption Standards and the European Union via its European Quantum Act, have taken
+    measures, but there will be a lag between action and implementation.
+  </p>
+
+  <p>
+    In the meantime, the telecommunications industry, masters of the digital infrastructure, have to step
+    in and take responsibility—the means to upgrade telecommunications are available. In the medium
+    term, the industry will benefit from this.
+  </p>
+
+  <h2>Enormous Opportunity: Another Frontier Era Within Reach</h2>
+
+  <p>
+    The risk story is clear—but the opportunity story is just as compelling. Quantum computing doesn’t
+    just threaten existing systems; it offers telecoms a pathway to growth, differentiation, and relevance
+    in the next technological era. Telcos stand to benefit in two major ways: first, by commercialising
+    Quantum-Computing-as-a-Service (QCaaS) for industries such as banking, pharmaceuticals,
+    logistics, and cloud computing; second, by using quantum algorithms internally to optimise routing,
+    reduce energy use, and enhance fault prediction. Industries like transport, energy, and hyperscale
+    cloud platforms are already exploring quantum-enhanced efficiencies —and they will pay a
+    premium to access these capabilities through trusted telecom partners.
+  </p>
+
+  <p>
+    According to McKinsey, quantum-encrypted communication (QEC), i.e. a safeguard against
+    quantum decryption, will likely be the first QC-related commercial product with an estimated
+    market size of US$13 billion. Figure 3 illustrates the scenarios for the market size of the safeguard
+    by 2035 giving the actual 2023 market size as benchmark. The compound annual growth rate
+    (CAGR) of 23 to 25 % clearly illustrates a key message:
+  </p>
+
+  <figure id="figure-3">
+    <img src="figure3.png" alt="Scenarios for the market size of quantum-encrypted communication (QEC) through 2035 with CAGR 23–25%." />
+    <figcaption><strong>Figure 3:</strong> Scenarios for the market size of quantum-encrypted communication (QEC) for 2035 as developed by McKinsey &amp; Co. (Circles scale with diameter not area).</figcaption>
+  </figure>
+
+  <p>
+    <strong>Quantum computing isn’t just a risk; it brings enormous economic, environmental and societal opportunities—and the telecom sector is uniquely equipped to reap these benefits.</strong>
+  </p>
+
+  <h2>The Time is Now: The Roadmap to Quantum Readiness</h2>
+
+  <p>
+    There is no silver bullet—but there is a clear path forward. Telecoms can begin by laying the
+    groundwork: auditing quantum risk exposure, launching post-quantum cryptography in sensitive
+    sectors, and identifying fiber corridors for quantum key distribution. The second phase could
+    involve piloting of QKD in selected sectors, building sandbox environments for quantum-safe 5G/
+    6G, and training internal teams. The final phase is scale and monetisation—offering QCaaS to
+    enterprise clients, integrating quantum optimisation into network operations, and establishing
+    regional quantum backbone status. Each step compounds strategic advantage—and shrinks the
+    window of vulnerability.
+  </p>
+
+  <h2>The Bottom Line: Quantum Decryption Will Emerge—But It Won’t Announce Itself</h2>
+
+  <p>
+    Quantum decryption won’t arrive with ceremony. It will arrive quietly—and with seismic
+    consequences. It will shake the foundations of global security, enterprise trust, and data governance.
+    The telcos that act now will become national assets. Perhaps even digital first responders in a new
+    kind of technological emergency. Those that delay? They risk irrelevance—or worse. Telcos have
+    already mastered electricity and light harnessing the economic benefits. I believe they can master &amp;
+    monetise the quantum revolution as well—if they act now.
+  </p>
+
+  <div class="hr"></div>
+
+  <p><strong>Interested in how advanced digital technologies will shape the future?</strong> Please check out my other articles on artificial intelligence, quantum computing, brain-computer interfaces and more:</p>
+
+  <h2>Quantum Computing</h2>
+  <ul>
+    <li>THE QUANTUM COMPUTING REVOLUTION : Unlocking Solutions to Humanity’s Toughest Problems (Part 1)</li>
+    <li>THE QUANTUM COMPUTING REVOLUTION: From Technological Opportunity to Geopolitical Power Shift (Part 2)</li>
+  </ul>
+
+  <h2>Artificial Intelligence</h2>
+  <ul>
+    <li>THE ASCENT OF AI: Is it Already Shaping Every Breakthrough and Even Taking Over Creativity?</li>
+    <li>REALITY ISN’T WHAT IT USED TO BE: How AI Could Converge Our Understanding of Reality, Perception &amp; Consciousness</li>
+  </ul>
+
+  <h2>Machines &amp; Our Mind</h2>
+  <ul>
+    <li>NAVIGATING THE CONVERGENCE OF MIND &amp; MACHINE: On the Neural Frontier &amp; the Implications of Merged Consciousness</li>
+    <li>CONSCIOUS MACHINES: Impossible Feat, Ethical Nightmare, or Evolution’s Next Step?</li>
+  </ul>
+
+</main>
+</body>
+</html>
