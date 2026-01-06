@@ -126,7 +126,58 @@
   }
   </style>
 </head>
+<script>
+(function () {
+  const MEDIUM_URL = "https://medium.com/p/c0b875880dd5";
 
+  function nowISO() {
+    return new Date().toISOString();
+  }
+
+  // Attach tracking to all links that go to Medium
+  document.addEventListener("click", function (e) {
+    const a = e.target.closest && e.target.closest("a");
+    if (!a) return;
+
+    const href = (a.getAttribute("href") || "").trim();
+    if (!href) return;
+
+    // Track only Medium link clicks (exact or starts-with)
+    const isMedium =
+      href === MEDIUM_URL ||
+      href.startsWith("https://medium.com/p/") ||
+      href.startsWith("https://medium.com/@") ||
+      href.includes("medium.com");
+
+    if (!isMedium) return;
+
+    const payload = {
+      ts: nowISO(),
+      href: href,
+      text: (a.textContent || "").trim().slice(0, 200),
+      page: location.href,
+      ref: document.referrer || "",
+      ua: navigator.userAgent
+    };
+
+    // Store locally so you can verify you clicked
+    const key = "medium_click_log";
+    const existing = JSON.parse(localStorage.getItem(key) || "[]");
+    existing.push(payload);
+    localStorage.setItem(key, JSON.stringify(existing));
+
+    console.log("[GitHub→Medium click logged]", payload);
+  });
+
+  // Convenience: dump log on demand
+  window.dumpMediumClickLog = function () {
+    const key = "medium_click_log";
+    const data = JSON.parse(localStorage.getItem(key) || "[]");
+    console.table(data);
+    return data;
+  };
+})();
+</script>
 <body>
 <main>
   <h1>THE QUANTUM DEADLINE: Telcos Face a Make-or-Break Moment</h1>
