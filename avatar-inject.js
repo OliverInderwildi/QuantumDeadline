@@ -7,7 +7,7 @@
       var img = document.createElement('img');
       img.src = 'avatar.jpg';
       img.alt = 'Dr. Oliver Inderwildi';
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:50%;';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;border-radius:50%;';
       div.style.cssText += ';padding:0;font-size:0;';
       div.appendChild(img);
     });
