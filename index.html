@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Quantum Deadline: Telcos Face a Make-or-Break Moment | Oliver Inderwildi</title>
+  <meta name="description" content="Quantum computing is nearing Q-Day, when encryption breaks. Learn how telecom operators face rising quantum cyber risks—and how post-quantum security creates opportunity. By Dr. Oliver Inderwildi." />
+  <meta name="author" content="Oliver Inderwildi" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWNCQB0SMG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-TMZL17ZBR3');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #1a1714; --ink-soft: #3d3830; --ink-muted: #6e6458; --ink-faint: #b0a898;
+      --paper: #f9f6f1; --paper-warm: #f3ede3; --paper-deep: #e8dfd0; --rule: #d4c9b8;
+      --accent: #c0392b; --accent-dark: #962d22; --accent-pale: #f5e8e6;
+      --teal: #1a6b72; --teal-pale: #e3f0f1; --gold: #b8922a; --gold-pale: #f8f1e0;
+      --col-width: 680px; --wide-width: 900px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.75; font-weight: 300; }
+
+    .hero { background: var(--ink); color: var(--paper); padding: 80px 24px 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px); pointer-events: none; }
+    .hero-inner { max-width: var(--wide-width); margin: 0 auto; position: relative; }
+    .publication-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .publication-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.15); }
+    .series-tag { display: inline-block; background: var(--accent); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 16px; max-width: 820px; }
+    .hero h1 em { font-style: italic; color: var(--ink-faint); }
+    .hero-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(16px, 2.5vw, 22px); font-weight: 400; font-style: italic; color: rgba(249,246,241,.7); margin-bottom: 24px; max-width: 700px; }
+    .hero-sub { font-size: 17px; font-weight: 300; color: rgba(249,246,241,.6); max-width: 620px; line-height: 1.6; margin-bottom: 40px; font-style: italic; }
+    .byline-strip { display: flex; align-items: center; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.12); }
+    .byline-avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--ink-soft); border: 2px solid rgba(255,255,255,.2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; color: var(--paper); }
+    .byline-text { flex: 1; }
+    .byline-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--paper); }
+    .byline-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(249,246,241,.5); letter-spacing: .05em; margin-top: 3px; }
+    .read-time { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(249,246,241,.4); letter-spacing: .08em; }
+
+    .published-strip { background: var(--paper-warm); border-bottom: 1px solid var(--rule); padding: 14px 24px; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-muted); letter-spacing: .06em; }
+    .published-strip a { color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-pale); }
+    .published-strip a:hover { color: var(--accent); }
+
+    .toc-wrapper { max-width: var(--col-width); margin: 56px auto 0; padding: 0 24px; }
+    .toc { background: var(--paper-warm); border-left: 3px solid var(--gold); padding: 28px 32px; }
+    .toc-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .toc ol { padding-left: 20px; color: var(--ink-soft); }
+    .toc li { font-size: 14px; line-height: 1.9; }
+    .toc a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+    .toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .article-body { max-width: var(--col-width); margin: 0 auto; padding: 56px 24px 80px; }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 700; line-height: 1.25; color: var(--ink); margin: 64px 0 20px; padding-top: 48px; border-top: 1px solid var(--rule); }
+    .article-body h2:first-of-type { margin-top: 24px; padding-top: 0; border-top: none; }
+    .article-body p { margin-bottom: 24px; color: var(--ink-soft); }
+    .article-body a { color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-pale); transition: border-color .2s, color .2s; }
+    .article-body a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .article-body ul, .article-body ol { margin: 0 0 24px 24px; color: var(--ink-soft); }
+    .article-body li { margin-bottom: 10px; }
+
+    .lead { font-size: 19px; font-style: italic; color: var(--ink-muted); border-left: 3px solid var(--accent); padding-left: 24px; margin-bottom: 40px; line-height: 1.7; }
+
+    blockquote { margin: 48px -16px; padding: 32px 40px; background: var(--ink); color: var(--paper); position: relative; }
+    blockquote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 80px; line-height: 1; color: var(--accent); position: absolute; top: 16px; left: 24px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-size: 20px !important; line-height: 1.5; color: var(--paper) !important; padding-left: 32px; margin-bottom: 0 !important; font-style: italic; }
+
+    .section-break { text-align: center; color: var(--ink-faint); font-size: 20px; margin: 48px 0; letter-spacing: 12px; }
+
+    .key-insight { background: var(--teal-pale); border-left: 3px solid var(--teal); padding: 22px 28px; margin: 40px 0; font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: var(--ink-soft); }
+    .key-insight strong { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); font-style: normal; font-weight: 500; margin-bottom: 10px; }
+
+    .risk-box { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 32px 0; }
+    .risk-box strong { display: block; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+    .risk-box p { font-size: 16px; margin-bottom: 0 !important; }
+
+    .figure { position: relative; left: 50%; transform: translateX(-50%); width: min(1100px, calc(100vw - 32px)); margin-top: 48px; margin-bottom: 48px; background: var(--paper-warm); border: 1px solid var(--rule); overflow: hidden; }
+    .figure-narrow { position: static; transform: none; width: 100%; max-width: 620px; margin: 40px auto; left: auto; }
+    .figure img { width: 100%; height: auto; display: block; }
+    .figure-caption { padding: 16px 24px 18px; background: var(--paper-warm); border-top: 1px solid var(--rule); }
+    .figure-caption-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .figure-caption p { font-size: 14px !important; color: var(--ink-muted) !important; line-height: 1.6; margin-bottom: 0 !important; }
+    .figure-caption a { color: var(--teal); border-bottom: 1px solid var(--teal-pale); }
+
+    .part-nav { background: var(--paper-warm); border: 1px solid var(--rule); padding: 20px 28px; margin: 24px 0; display: flex; align-items: center; gap: 16px; }
+    .part-nav-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--ink-faint); white-space: nowrap; }
+    .part-nav a { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-pale); }
+    .part-nav a:hover { color: var(--accent); }
+
+    .tags-strip { max-width: var(--col-width); margin: 0 auto 56px; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; border: 1px solid var(--rule); color: var(--ink-muted); text-decoration: none; transition: background .2s, color .2s; }
+    .tag:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    .further-reading { max-width: var(--col-width); margin: 0 auto 56px; padding: 0 24px; }
+    .further-reading h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+    .further-reading h3 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 28px 0 12px; }
+    .further-reading ul { list-style: none; padding: 0; margin: 0 0 8px; }
+    .further-reading li { padding: 10px 0; border-bottom: 1px solid var(--paper-deep); font-size: 15px; line-height: 1.5; }
+    .further-reading a { color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-pale); font-style: italic; }
+    .further-reading a:hover { color: var(--accent); }
+
+    .author-bio { max-width: var(--col-width); margin: 0 auto 80px; padding: 0 24px; }
+    .author-bio-inner { background: var(--ink); color: var(--paper); padding: 36px 40px; display: flex; gap: 28px; align-items: flex-start; }
+    .author-bio-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--ink-soft); flex-shrink: 0; border: 2px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 28px; color: var(--paper); }
+    .author-bio-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .author-bio-text { font-size: 14px; color: rgba(249,246,241,.7); line-height: 1.65; margin: 0 0 16px; }
+    .author-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .author-link { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(249,246,241,.5); text-decoration: none; border: 1px solid rgba(255,255,255,.15); padding: 4px 10px; transition: color .2s, border-color .2s; }
+    .author-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    footer { background: var(--ink); color: rgba(249,246,241,.4); text-align: center; padding: 28px 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .08em; }
+    footer a { color: rgba(249,246,241,.6); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .author-bio-inner { flex-direction: column; gap: 20px; }
+      blockquote { margin: 40px 0; padding: 28px 24px 28px 28px; }
+      blockquote::before { font-size: 60px; top: 12px; left: 16px; }
+      blockquote p { padding-left: 20px; }
+    }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="publication-label">Oliver Inderwildi · Quantum Computing Series</div>
+    <div class="series-tag">Quantum Computing · Part 3</div>
+    <h1>The Quantum Deadline: <em>Telcos Face a Make-or-Break Moment</em></h1>
+    <p class="hero-subtitle">Q-Day is closer than most realise — and the telecommunications industry sits at the eye of the storm.</p>
+    <p class="hero-sub">From harvest-now-decrypt-later attacks to a $13 billion market opportunity, why post-quantum readiness can no longer wait.</p>
+    <div class="byline-strip">
+      <div class="byline-avatar">OI</div>
+      <div class="byline-text">
+        <div class="byline-name">Dr. Oliver Inderwildi</div>
+        <div class="byline-meta">Researcher · Author · Technologist &nbsp;·&nbsp; April 2025</div>
+      </div>
+      <div class="read-time">~10 min read</div>
+    </div>
+  </div>
+</header>
+
+<div class="published-strip">
+  Extended version of an Editorial Opinion published in
+  <a href="https://www.thefastmode.com/expert-opinion/42971-the-quantum-deadline-telcos-face-a-make-or-break-moment" target="_blank" rel="noopener noreferrer">The Fast Mode</a>.
+  Also available on <a href="https://medium.com/p/c0b875880dd5" target="_blank" rel="noopener noreferrer">Medium</a>.
+</div>
+
+<nav class="toc-wrapper" aria-label="Table of contents">
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#illusion-of-time">The Illusion of Time: Why 2030 Is Too Late</a></li>
+      <li><a href="#end-of-privacy">The End of Privacy: What Quantum Decryption Means for All of Us</a></li>
+      <li><a href="#public-duty">Public Duty: Why the Telecom Industry Must Lead</a></li>
+      <li><a href="#governance-lag">The Governance Lag: Policy is Struggling to Keep Up</a></li>
+      <li><a href="#opportunity">Enormous Opportunity: Another Frontier Era Within Reach</a></li>
+      <li><a href="#roadmap">The Time is Now: The Roadmap to Quantum Readiness</a></li>
+      <li><a href="#bottom-line">The Bottom Line</a></li>
+    </ol>
+  </div>
+</nav>
+
+<article class="article-body">
+
+  <p class="lead">Our lives increasingly take place in a virtual world — humans connect on social media, shop online, and health records are uploaded to an enormous cyber cloud. All this has tremendous upsides and our data is protected via encryption. Yet <a href="https://eurepoc.eu" target="_blank" rel="noopener noreferrer">data breaches</a> are becoming more and more common: encrypted data is stolen and stored by state and non-state players with one goal — decrypt it later. This approach is referred to as <a href="https://www.thefastmode.com/podcasts/37912-securing-networks-in-the-age-of-ai-and-quantum-computing-nokia-threat-intelligence-report" target="_blank" rel="noopener noreferrer">harvest now, decrypt later (HNDL)</a>.</p>
+
+  <p>What are the entities involved in HNDL speculating on? Rapid technological progress. Large language models, for instance, have emerged at a pace that even the most bullish experts didn't anticipate. Meanwhile, quantum computing (QC) breakthroughs are stacking up faster than expected — with test results showing performance gains far beyond the most optimistic projections.</p>
+
+  <p>In my view, the ascent of QC will follow a similar path to generative AI: it will appear suddenly and develop at breakneck speed. <a href="https://medium.com/@oliverinderwildi/the-quantum-computing-revolution-unlocking-solutions-to-humanitys-toughest-problems-part-1-ffe2ebbeb001" target="_blank" rel="noopener noreferrer">Operational quantum computers will allow quantum decryption</a>, which will break current encryption standards like a hammer cracks a walnut. All of a sudden, it makes sense to steal encrypted data — because it won't be encrypted for long. QC is closer than we think. That's why we need to confront its consequences right now.</p>
+
+  <h2 id="illusion-of-time">The Illusion of Time: Why 2030 Is Too Late</h2>
+
+  <p>Until recently, 2030 was considered the earliest possible date for cryptographically relevant quantum computers (CRQC). However, that timeline is rapidly collapsing. <a href="https://time.com/7282334/the-quantum-era-has-begun/" target="_blank" rel="noopener noreferrer">In the past year alone</a>:</p>
+
+  <ul>
+    <li>Google's Willow chip reduced a 10-septillion-year problem to a 5-minute calculation.</li>
+    <li>Microsoft discovered a new quantum phase of matter — a breakthrough for error correction.</li>
+    <li>D-Wave and Quantinuum solved previously intractable real-world problems.</li>
+  </ul>
+
+  <p>Perhaps most significantly, we're seeing the first signs of a quantum–AI feedback loop: artificial intelligence is accelerating <a href="https://medium.com/the-geopolitical-economist/the-quantum-computing-revolution-geopolitics-economics-c2380e0167ee" target="_blank" rel="noopener noreferrer">quantum computer design and operation</a>, and quantum machines will soon return the favour. These developments strongly suggest that cryptographically relevant QCs will be operational years earlier than even the most optimistic forecasts predicted.</p>
+
+  <p>In short, the so-called Q-Day — the day when current encryption will be rendered useless by operational quantum computers — is approaching rapidly. The figure below gives a short timeline of quantum computing, from Feynman's ideation to the near future. The probability of Q-Day hitting this decade is, in my opinion, close to 100%.</p>
+
+  <div class="figure">
+    <img src="figure1.png" alt="Quantum computing timeline from early foundations to Q-Day probability approaching 2030." />
+    <div class="figure-caption">
+      <div class="figure-caption-label">Figure 1</div>
+      <p>A short timeline of Quantum Computing. The probability for Q-Day materialising this decade is — according to my assessment — close to 100%.</p>
+    </div>
+  </div>
+
+  <h2 id="end-of-privacy">The End of Privacy: What Quantum Decryption Means for All of Us</h2>
+
+  <p>What policymakers and telecom leaders must understand: the "harvest now, decrypt later" threat is no longer theoretical. State intelligence services and corporate espionage actors have already harvested vast troves of encrypted data — just waiting for them to be unlocked by what I call the Quantum Dietrich: a truly universal digital lockpick.</p>
+
+  <p>A <a href="https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/766237/EPRS_BRI(2024)766237_EN.pdf" target="_blank" rel="noopener noreferrer">2024 briefing</a> from the European Parliamentary Research Service and a <a href="https://www3.weforum.org/docs/WEF_Transitioning%20to_a_Quantum_Secure_Economy_2022.pdf" target="_blank" rel="noopener noreferrer">2022 white paper</a> from the World Economic Forum confirm that state and corporate actors are hoarding sensitive communications today, betting on future decryption. HNDL attacks selectively target data with long-term value: health and financial records, government communications, corporate IP, and other personally identifiable information.</p>
+
+  <div class="figure">
+    <img src="figure2.png" alt="HNDL attacks selectively target data with long-term strategic value; estimated distribution of harvested data and examples." />
+    <div class="figure-caption">
+      <div class="figure-caption-label">Figure 2</div>
+      <p>HNDL attacks selectively target data with long-term strategic value such as governmental, corporate, and personal data. Estimates are the result of a meta-analysis of data by Rand Corp., The Quantum Insider, the US Government Accountability Office, the US Chamber of Commerce, The Wall Street Journal, Microsoft, and others.</p>
+    </div>
+  </div>
+
+  <div class="risk-box">
+    <strong>Critical Warning</strong>
+    <p>Once CRQCs arrive, decades of encrypted secrets — health records, financial transactions, state communications — will be exposed retroactively. The inflection point of quantum decryption will reverberate through the global economy, national security, and the financial system.</p>
+  </div>
+
+  <h2 id="public-duty">Public Duty: Why the Telecom Industry Must Lead</h2>
+
+  <p>The telecommunications industry is key to safeguarding our national interests, economic wellbeing, and privacy. Telcos are the pillar of digital infrastructure — they own fibre networks, edge facilities, and data centres. This infrastructure is key to QC operation, yet it is also the Achilles heel: it is the entry point for malign entities preying on data.</p>
+
+  <blockquote>
+    <p>Industry leaders have the duty to think ahead and implement safeguards for nation states and their inhabitants — before the state's slow machinery can catch up.</p>
+  </blockquote>
+
+  <p>One could argue that it is the state that should implement these safeguards. Yet this time it is different — as the next section explores.</p>
+
+  <h2 id="governance-lag">The Governance Lag: Policy is Struggling to Keep Up</h2>
+
+  <p>Technological innovation has long outpaced democratic decision-making. Not due to unwillingness or inertia, but because democratic processes require consensus-building, consultation, and regulation drafting — all inherently slow. By the time legislation catches up, technology has already evolved.</p>
+
+  <p>The United States via <a href="https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards" target="_blank" rel="noopener noreferrer">NIST's Post-Quantum Encryption Standards</a> and the European Union via its <a href="https://www.europarl.europa.eu/news/en/press-room/press-room-item/2024-07-10/european-quantum-act-adopted-by-european-parliament" target="_blank" rel="noopener noreferrer">European Quantum Act</a> have taken measures — but there will be a lag between action and implementation. Policymakers must prioritise smart, adaptive policies that automatically adapt to technological developments. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0040162510000727" target="_blank" rel="noopener noreferrer">Successful examples of such political innovation exist</a>.</p>
+
+  <p>In the meantime, the telecommunications industry — masters of digital infrastructure — must step in and take responsibility. The <a href="https://medium.com/itnext/quantum-computing-wont-break-the-internet-it-will-just-force-us-to-update-it-7a1cc67bfddf" target="_blank" rel="noopener noreferrer">means to upgrade telecommunications are available</a>. In the medium term, the industry will benefit enormously from doing so.</p>
+
+  <h2 id="opportunity">Enormous Opportunity: Another Frontier Era Within Reach</h2>
+
+  <p>The risk story is clear — but the opportunity story is just as compelling. Quantum computing doesn't just threaten existing systems; it offers telecoms a pathway to growth, differentiation, and relevance in the next technological era.</p>
+
+  <p>Telcos stand to benefit in two major ways: first, by commercialising <a href="https://www.thefastmode.com/technology-solutions/25634-qusecure-databridge-sites-to-showcase-quantum-as-a-service-orchestration-platform" target="_blank" rel="noopener noreferrer">Quantum-Computing-as-a-Service (QCaaS)</a> for industries such as banking, pharmaceuticals, logistics, and cloud computing; second, by using quantum algorithms internally to optimise routing, reduce energy use, and enhance fault prediction.</p>
+
+  <p>According to McKinsey, quantum-encrypted communication (QEC) — a safeguard against quantum decryption — will likely be the first QC-related commercial product with <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-quantum-computing" target="_blank" rel="noopener noreferrer">an estimated market size of US$13 billion</a>. Figure 3 illustrates the scenarios for the market size of this safeguard by 2035, with a compound annual growth rate (CAGR) of 23–25%.</p>
+
+  <div class="figure figure-narrow">
+    <img src="figure3.png" alt="Scenarios for the market size of quantum-encrypted communication (QEC) through 2035 with CAGR 23-25%." />
+    <div class="figure-caption">
+      <div class="figure-caption-label">Figure 3</div>
+      <p>Scenarios for the market size of quantum-encrypted communication (QEC) for 2035, as developed by <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/quantum-communication-growth-drivers-cybersecurity-and-quantum-computing" target="_blank" rel="noopener noreferrer">McKinsey &amp; Co.</a> (Circles scale with diameter, not area.)</p>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Key Insight</strong>
+    Quantum computing isn't just a risk — it brings enormous economic, environmental, and societal opportunities. The telecom sector is uniquely equipped to reap these benefits.
+  </div>
+
+  <h2 id="roadmap">The Time is Now: The Roadmap to Quantum Readiness</h2>
+
+  <p>There is no silver bullet — but there is a clear path forward. Telecoms can begin by laying the groundwork: auditing quantum risk exposure, launching post-quantum cryptography (PQC) in sensitive sectors, and identifying fibre corridors for quantum key distribution (QKD).</p>
+
+  <ul>
+    <li><strong>Phase 1 — Foundation:</strong> Audit quantum risk exposure, initiate PQC pilots in sensitive sectors, identify QKD-ready fibre corridors.</li>
+    <li><strong>Phase 2 — Pilots:</strong> Launch QKD in selected sectors, build sandbox environments for quantum-safe 5G/6G, train internal teams.</li>
+    <li><strong>Phase 3 — Scale &amp; Monetise:</strong> Offer QCaaS to enterprise clients, integrate quantum optimisation into network operations, establish regional quantum backbone status.</li>
+  </ul>
+
+  <p>Each step compounds strategic advantage — and shrinks the window of vulnerability.</p>
+
+  <h2 id="bottom-line">The Bottom Line: Quantum Decryption Will Emerge — But It Won't Announce Itself</h2>
+
+  <p>Quantum decryption won't arrive with ceremony. It will arrive quietly — and with seismic consequences. It will shake the foundations of <a href="https://medium.com/@oliverinderwildi/the-quantum-computing-revolution-unlocking-solutions-to-humanitys-toughest-problems-part-1-ffe2ebbeb001" target="_blank" rel="noopener noreferrer">global security, enterprise trust, and data governance</a>.</p>
+
+  <p>The telcos that act now will become national assets — perhaps even digital first responders in a new kind of technological emergency. Those that delay risk irrelevance, or worse. Telcos have already mastered electricity and light, harnessing their economic benefits. I believe they can master and monetise the quantum revolution as well — if they act now.</p>
+
+  <div class="section-break">· · ·</div>
+
+  <p>This article is part of an ongoing discussion on emerging quantum risks. A shorter, reader-focused version is available on <a href="https://medium.com/p/c0b875880dd5" target="_blank" rel="noopener noreferrer">Medium</a>.</p>
+
+  <div class="part-nav">
+    <span class="part-nav-label">Also in this series</span>
+    <a href="https://medium.com/@oliverinderwildi/the-quantum-computing-revolution-unlocking-solutions-to-humanitys-toughest-problems-part-1-ffe2ebbeb001" target="_blank" rel="noopener noreferrer">Part 1 — Unlocking Solutions to Humanity's Toughest Problems →</a>
+  </div>
+  <div class="part-nav">
+    <span class="part-nav-label">Also in this series</span>
+    <a href="https://oliverinderwildi.github.io/QC_Article_Part2/index.html" target="_blank" rel="noopener noreferrer">Part 2 — Geopolitics &amp; Economics of the Quantum Revolution →</a>
+  </div>
+
+</article>
+
+<div class="tags-strip">
+  <span class="tag">Quantum Computing</span>
+  <span class="tag">Q-Day</span>
+  <span class="tag">Post-Quantum Cryptography</span>
+  <span class="tag">HNDL</span>
+  <span class="tag">Telecoms</span>
+  <span class="tag">Cybersecurity</span>
+  <span class="tag">QKD</span>
+  <span class="tag">QCaaS</span>
+</div>
+
+<section class="further-reading">
+  <h2>Further Reading</h2>
+  <h3>Quantum Computing</h3>
+  <ul>
+    <li><a href="https://medium.com/@oliverinderwildi/the-quantum-computing-revolution-unlocking-solutions-to-humanitys-toughest-problems-part-1-ffe2ebbeb001" target="_blank" rel="noopener noreferrer">The Quantum Computing Revolution: Unlocking Solutions to Humanity's Toughest Problems (Part 1)</a></li>
+    <li><a href="https://medium.com/the-geopolitical-economist/the-quantum-computing-revolution-geopolitics-economics-c2380e0167ee" target="_blank" rel="noopener noreferrer">The Quantum Computing Revolution: From Technological Opportunity to Geopolitical Power Shift (Part 2)</a></li>
+  </ul>
+  <h3>Artificial Intelligence</h3>
+  <ul>
+    <li><a href="https://medium.com/@oliverinderwildi/the-ascent-of-ai-is-it-already-shaping-every-breakthrough-and-even-taking-over-creativity-009f499e0d1c" target="_blank" rel="noopener noreferrer">The Ascent of AI: Is it Already Shaping Every Breakthrough and Even Taking Over Creativity?</a></li>
+    <li><a href="https://medium.com/ai-advances/reality-isnt-what-it-used-to-be-how-ai-could-converge-our-understanding-of-reality-perception-88310abcc0d1" target="_blank" rel="noopener noreferrer">Reality Isn't What It Used to Be: How AI Could Converge Our Understanding of Reality, Perception &amp; Consciousness</a></li>
+  </ul>
+  <h3>Machines &amp; Our Mind</h3>
+  <ul>
+    <li><a href="https://medium.com/@oliverinderwildi/navigating-the-convergance-of-mind-machine-on-the-neural-frontier-the-implications-of-merged-102ca96f1a2b" target="_blank" rel="noopener noreferrer">Navigating the Convergence of Mind &amp; Machine: On the Neural Frontier &amp; the Implications of Merged Consciousness</a></li>
+    <li><a href="https://medium.com/@oliverinderwildi/conscious-machines-impossible-feat-ethical-nightmare-or-evolutions-next-step-6c1c8bc8ec8b" target="_blank" rel="noopener noreferrer">Conscious Machines: Impossible Feat, Ethical Nightmare, or Evolution's Next Step?</a></li>
+  </ul>
+</section>
+
+<section class="author-bio">
+  <div class="author-bio-inner">
+    <div class="author-bio-avatar">OI</div>
+    <div>
+      <div class="author-bio-name">Dr. Oliver Inderwildi</div>
+      <p class="author-bio-text">Researcher, author, and technologist writing at the intersection of quantum computing, artificial intelligence, and geopolitics. Affiliated with the University of Cambridge. His work explores how emerging technologies reshape society, economics, and global power.</p>
+      <div class="author-links">
+        <a href="https://oliverinderwildi.github.io/" class="author-link" rel="me">Website</a>
+        <a href="https://www.linkedin.com/in/oliverinderwildi/" class="author-link" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=zy1UxxUAAAAJ&hl=en" class="author-link" target="_blank" rel="me noopener noreferrer">Google Scholar</a>
+        <a href="https://medium.com/@oliverinderwildi" class="author-link" target="_blank" rel="me noopener noreferrer">Medium</a>
+        <a href="https://www.youtube.com/@oliverinderwildi" class="author-link" target="_blank" rel="me noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Oliver Inderwildi &nbsp;·&nbsp; <a href="https://oliverinderwildi.github.io/">oliverinderwildi.github.io</a></p>
+</footer>
+
+<div class="visually-hidden">
+  <a href="https://oliverinderwildi.github.io/" rel="me">Oliver Inderwildi</a>
+  <a href="https://www.linkedin.com/in/oliverinderwildi/" rel="me">LinkedIn</a>
+  <a href="https://scholar.google.com/citations?user=zy1UxxUAAAAJ&hl=en" rel="me">Google Scholar</a>
+  <a href="https://www.researchgate.net/profile/Oliver-Inderwildi" rel="me">ResearchGate</a>
+  <a href="https://www.wikidata.org/wiki/Q58555766" rel="me">Wikidata</a>
+  <a href="https://como.ceb.cam.ac.uk/people/ori20/" rel="me">University of Cambridge</a>
+</div>
+
+</body>
+</html>
